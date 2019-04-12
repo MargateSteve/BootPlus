@@ -1,0 +1,46 @@
+@each $status, $array in $colors-map {
+    @if $status {
+        @each $color, $value in $array {
+            .btn-#{$color} {
+                @include button-variant($value, $value);
+            }
+            .btn-outline-#{$color} {
+              @include button-outline-variant($value);
+            }
+
+            @if $enable-shades {
+                @each $weight, $percentage in $palette {
+                    @if $weight < 500 {
+                        .btn-#{$color}#{$weight} {
+                            @include button-variant(scale-color($value, $lightness: $percentage), scale-color($value, $lightness: $percentage));
+                        }
+
+                        .btn-outline-#{$color}#{$weight} {
+                          @include button-outline-variant(scale-color($value, $lightness: $percentage));
+                        }
+
+
+                    } @else if $weight > 500 {
+
+                        .btn-#{$color}#{$weight} {
+                            @include button-variant(scale-color($value, $lightness: -$percentage), scale-color($value, $lightness: -$percentage));
+                        }
+
+                        .btn-outline-#{$color}#{$weight} {
+                          @include button-outline-variant(scale-color($value, $lightness: -$percentage));
+                        }
+
+                    } @else {
+                        .btn-#{$color}#{$weight} {
+                            @include button-variant($value,$value);
+                        }
+
+                        .btn-outline-#{$color}#{$weight} {
+                          @include button-outline-variant($value);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+@each $status, $array in $colors-map {
+    @if $status {
+        @each $color, $value in $array {
+            @include bg-variant(".bg-#{$color}", $value);
+
+            @if $enable-contrast-colors {
+                .bg-#{$color}{
+                    &.contrast,
+                    &.contrast a {
+                        @include text-contrast($value)
+                    }
+                }
+            }
+
+            @if $enable-shades {
+                @each $weight, $percentage in $palette {
+                    @if $weight < 500 {
+                        @include bg-variant(".bg-#{$color}#{$weight}",scale-color($value, $lightness: $percentage));
+                    } @else if $weight > 500 {
+                        @include bg-variant(".bg-#{$color}#{$weight}",scale-color($value, $lightness: -$percentage));
+                    } @else {
+                        @include bg-variant(".bg-#{$color}#{$weight}", $value);
+                    }
+
+                    @if $enable-contrast-colors {
+                        .bg-#{$color}#{$weight}{
+                            &.contrast,
+                            &.contrast a {
+                                @if $weight < 500 {
+                                    @include text-contrast(scale-color($value, $lightness: $percentage));
+                                } @else if $weight > 500 {
+                                    @include text-contrast(scale-color($value, $lightness: -$percentage));
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

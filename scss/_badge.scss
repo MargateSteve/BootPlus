@@ -1,0 +1,32 @@
+@each $status, $array in $colors-map {
+    @if $status {
+        @each $color, $value in $array {
+            .badge-#{$color} {
+              @include badge-variant($value);
+            }
+
+            @if $enable-shades {
+                @each $weight, $percentage in $palette {
+                    @if $weight < 500 {
+
+                        .badge-#{$color}#{$weight} {
+                          @include badge-variant(scale-color($value, $lightness: $percentage));
+                        }
+
+                    } @else if $weight > 500 {
+
+                        .badge-#{$color}#{$weight} {
+                          @include badge-variant(scale-color($value, $lightness: -$percentage));
+                        }
+
+                    } @else {
+                        .badge-#{$color}#{$weight} {
+                          @include badge-variant($value);
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}
