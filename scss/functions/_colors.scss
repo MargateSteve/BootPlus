@@ -1,5 +1,5 @@
 @function contrast($color) {
-    @if abs(get_color_brightness($color)) < (get_light_color($color)/2) {
+    @if abs(get_color_brightness($color)) < (get_light_color($color)/2.5) {
         @return white;
     } @else {
         @return black;
