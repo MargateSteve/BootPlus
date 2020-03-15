@@ -37,7 +37,7 @@ class C_Colors extends Controller
      * @return 	         /app/views/home/index.php
 	 * @link 	         http://yoursite/
 	 */
-	public function index($p=null) {
+    public function index($p=null) {
         $m = $this->model('M_Colors');
 
         if(!$p) {

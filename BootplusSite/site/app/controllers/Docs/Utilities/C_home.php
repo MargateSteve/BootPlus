@@ -49,7 +49,7 @@ class C_Home extends Controller
 
         // Pass the data to the view
         $this->view(
-         'home/docs',$view_data
+         'docs/utilities/index',$view_data
         );
 
   	} // index()

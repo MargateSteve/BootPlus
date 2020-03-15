@@ -52,7 +52,7 @@ class T_Docs extends T_Base {
 
         $c = '<div class="col-12 col-md-3 col-xl-2 docs-sidebar bg-grey700">';
 
-        $c .= '<nav id="docs-nav" class="collapse docs-menu"><div class="docs-menu-header d-none d-md-block">Docs Menu</div>';
+        $c .= '<nav id="docs-nav" class="docs-menu"><div class="docs-menu-header d-none d-md-block">Docs Menu</div>';
 
         foreach ($links as $categories => $category) {
             $category_active = (isset($this->_url[1]) && $this->_url[1]==$categories) ? true : false;

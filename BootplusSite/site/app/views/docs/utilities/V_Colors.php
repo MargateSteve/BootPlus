@@ -93,6 +93,7 @@ function singlecolor($t,$d,$s) {
 
 
 function index($t,$d,$s) {
+    echo 'aaaaaaa';
     $o = '<div class="col-12">';
     $o .= '<p>Extends the <code>.text-*</code> and <code>.bg-*</code> utilities extra '.count($d['base']).' base colors and '.count($d['extra']).' extra colors, all in 9 different shades, giving '.(count($d['base']+$d['extra'])*9).' total variations. Ok, a few may turn out to be the same color but they have different names so we are counting them. With the number of colors, though, including them all creats a large css file so it is recommended that you <a href="#color_compile">compile your own</a> and choose the colors you want.</p>
     <p>All of these can be combined with each other to create a custom variation, or with the <a href="/Docs/Utilities/Colors/Contrast">.contrast</a>, <a href="/Docs/Utilities/Colors/Complement">.complement</a>, <a href="/Docs/Utilities/Colors/Invert">.invert</a>, <a href="/Docs/Utilities/Colors/Blend">.blend</a> and <a href="/Docs/Utilities/Colors/Blend">.blend-*</a> utilities.</p>

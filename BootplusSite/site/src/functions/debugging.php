@@ -6,7 +6,7 @@ function debugging_method ($file, $function, $args) {
         $c = explode( '\app\\',$file);
         $c = str_replace('\\','\\\\',$c[1]);
         echo "<script>console.log('Controller: $c->$function(";
-        echo implode($args, ',');
+        echo implode(',',$args);
         echo")')</script>";
     }
     return null;

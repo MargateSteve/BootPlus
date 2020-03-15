@@ -79,7 +79,7 @@ class Controller
         $count=count($v);
         $file='V_'.$v[$count-1].'.php';
         unset($v[$count-1]);
-        $path=implode($v,'/');
+        $path=implode('/',$v);
     	require_once '../app/views/'.$path.'/'.$file;
  	} // view ()
 
