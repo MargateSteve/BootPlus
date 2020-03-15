@@ -1,0 +1,36 @@
+body {
+	background-color: #fff;
+}
+
+
+.masthead {
+    .title {
+    	font-size: 3.5rem;
+    	color:#0e3ca7;
+    }
+}
+
+
+
+
+.card.menu
+{
+    .card-block {
+        padding: .5rem .75rem;
+    }
+
+    .card-title {
+        margin-bottom: .25rem;
+    }
+}
+
+
+li {
+    &.nav-item
+    {
+        &.user {
+            color: aliceblue;
+            font-size: 1.5em;
+        }
+    }
+}

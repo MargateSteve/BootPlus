@@ -1,0 +1,78 @@
+@import "../raw/scss/variables";
+
+
+$base-colors: () !default;
+$base-colors: map-merge((
+    "aqua":       #00FFFF,
+    "brown":      #A52A2A,
+    "coral":      #FF7F50,
+    "crimson":    #DC143C,
+    "gold":       #FFD700,
+    "magenta":    #FF00FF,
+    "maroon":     #800000,
+    "navy":       #000080,
+    "olive":      #808000,
+
+), $base-colors);
+
+
+$extra-colors: () !default;
+$extra-colors: map-merge((
+    "burlywood":	#DEB887,
+    "chocolate":  #D2691E,
+    "cadetblue":	#5F9EA0,
+    "cornflowerblue":	#6495ED,
+    "darkgoldenrod":	#B8860B,
+    "darkkhaki": #BDB76B,
+    "darkred":	#8B0000,
+    "deeppink":	#FF1493,
+    "firebrick":	#B22222,
+    "fucshia": 	#FF00FF,
+    "goldenrod":	#DAA520,
+    "khaki":	#F0E68C,
+    "lavender":	  #E6E6FA,
+    "lightgray" : #D3D3D3,
+    "lime":	      #00FF00,
+    "orangered":  #FF4500,
+    "orchid":     #DA70D6,
+    "peru":	#CD853F,
+    "plum":	#DDA0DD,
+    "powderblue":	#B0E0E6,
+    "royalblue":	#4169E1,
+    "saddlebrown":	#8B4513,
+    "seagreen":	#2E8B57,
+    "salmon":     #FA8072,
+    "steelblue":  #4682B4,
+    "tan":        #D2B48C,
+    "tomato":	#FF6347,
+
+), $extra-colors);
+
+
+$palette : (
+  100 : 80%,
+  200 : 60%,
+  300 : 40%,
+  400 : 20%,
+  500 : 0,
+  600 : 20%,
+  700 : 40%,
+  800 : 60%,
+  900 : 80%
+);
+
+$box_sides : (
+  'top', 'right', 'bottom', 'left'
+);
+
+$include-theme-colors:      true !default;
+$enable-base-colors:        true !default;
+$enable-extra-colors:       true !default;
+$enable-contrast-colors:    true !default;
+$enable-blend-colors:       true !default;
+$enable-complement-colors:  true !default;
+$enable-invert-colors:      true !default;
+$max-border-width:          6;
+$enable-fixed-sizes:        true !default;
+$max-fixed-sizes:           6;
+$enable-bs-size-responsive: true !default;

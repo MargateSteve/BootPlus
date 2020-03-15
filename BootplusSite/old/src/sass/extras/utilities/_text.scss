@@ -1,0 +1,13 @@
+@include color-shade-palette ($colors, 'text');
+
+@if $include-theme-colors {
+  @include color-shade-palette ($theme-colors, 'text');
+}
+
+@if $enable-base-colors {
+  @include color-shade-palette ($base-colors, 'text');
+}
+
+@if $enable-extra-colors {
+  @include color-shade-palette ($extra-colors, 'text');
+}

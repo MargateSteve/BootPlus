@@ -1,0 +1,294 @@
+
+@import "variables";
+@import "breakpoints";
+@import "functions";
+
+
+
+
+@each $color, $value in $base-colors {
+    @include bg-variant(".bg-#{$color}", $value);
+    @include text-emphasis-variant(".text-#{$color}", $value);
+
+}
+
+
+
+
+body {
+    background-color: rgba(13, 32, 82, 0.25);
+//background-image: //url(http://wallpaperpulse.com/img/692024.jpg);
+//background-repeat: no-repeat;
+//background-attachment: fixed;
+//background-position: center;
+}
+
+h1 {
+    font-size: 1.75rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+a:hover {
+    &.hideonhover {
+
+		text-decoration: none!important;
+		border-bottom: 0!important;
+	}
+}
+
+
+.page-subtitle {
+    font-weight: 300;
+
+}
+
+.container {
+    @include media-breakpoint-down(md) {
+        padding-left: 0;
+        padding-right: 0;
+        max-width: 100%;
+    }
+}
+
+#main_content_standard {
+    background-color:#f8f9fa;
+}
+
+#header {
+    background-color: #000099;
+}
+
+.table_team {
+    max-width: 150px;
+    @media (min-width: 576px) {max-width: 165px;}
+    @media (min-width: 992px) {max-width: 265px;}
+
+}
+
+
+.menu-large {
+  position: static !important;
+}
+
+.megamenu {
+  padding: 20px 20px;
+  width: 100%;
+  background-color:  #f8f9fa;
+  border: 0;
+  padding-top: 0;
+
+
+  .container {
+      >.row {
+        top: 100%;
+        left: 0;
+        min-width: 10rem;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #212529;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.15);
+         border-radius: .25rem;
+      }
+  }
+
+
+  .dropdown-item {
+        color: #333333;
+  }
+
+  > div > li > ul {
+    padding: 0;
+    margin: 0;
+
+    > li {
+      list-style: none;
+    }
+
+    > a {
+      display: block;
+      padding: 3px 20px;
+      clear: both;
+      font-weight: normal;
+      line-height: 1.428571429;
+      color: #333333;
+      white-space: normal;
+    }
+  }
+
+  .list-group {
+      >.row {
+          margin-left: 1rem;
+      }
+  }
+
+  .card {
+     outline: none;
+    }
+    .dropdown-header {
+   color: #428bca;
+   font-size: 18px;
+    }
+
+}
+
+
+.match_row {
+
+    .goals  {
+        width: 80px;
+        text-align: right;
+    }
+    .home {
+        //background-color: #ffc;
+
+        .team {
+            //background-color: #f7f7b1;
+        }
+
+        .goals {
+            //background-color: #f5f588;
+        }
+    }
+
+    .away {
+        //background-color: #d8fdad;
+
+        .team {
+            //background-color: #c5f58e;
+        }
+
+        .goals {
+            //background-color: #a0da5e;
+        }
+    }
+
+    .att_ko {
+        //background-color: rgb(250, 156, 241)
+    }
+    .details {
+        //background-color: #9cf7fa;
+        font-size: 90%;
+    }
+}
+@media (min-width: 576px) {
+    .match_row {
+        .goals  {
+            width: 20px;
+        }
+    }
+
+    .home {
+        //background-color: #ffc;
+
+        .team {
+            text-align: right;
+        }
+
+    }
+}
+
+@media (max-width: 768px) {
+  .megamenu {
+    margin-left: 0;
+    margin-right: 0;
+
+    padding:0;
+
+    >.container {
+
+    }
+  }
+  .megamenu > li {
+    margin-bottom: 30px;
+  }
+  .megamenu > li:last-child {
+    margin-bottom: 0;
+  }
+  .megamenu.dropdown-header {
+    padding: 3px 15px !important;
+  }
+  .navbar-nav .open .dropdown-menu .dropdown-header {
+    color: #fff;
+  }
+
+
+
+
+
+}
+
+#sub-nav {
+    background-color: #81a8ec;
+    display: flex;
+    z-index:998;
+    top:32px;
+    padding: 0;
+
+    .navbar-toggler {
+        padding: .25rem;
+    }
+
+    .dropdown-item {
+            padding: 0 .5rem;
+        &.selected {
+            color: #0859a0;
+            background-color: #cde3f7;
+        }
+    }
+}
+
+.league-table {
+    tr {
+        td {
+            border-top-width: 0;
+        }
+
+        &.default {
+            border-bottom: .1px solid #d8d8d8;
+
+        }
+
+
+
+        &.ch_lge,&.prom  {
+            background-color: #bee5eb;
+            border-bottom: .1px solid #0099f9;
+        }
+
+
+        &.eur_lge,&.prom_po {
+            background-color: #c3e6cb;
+            border-bottom: 1px solid #2bbb4c;
+        }
+
+        &.rel {
+            background-color: #f5c6cb;
+            border-top: 1px solid #f77c88;
+            border-bottom: 0;
+        }
+
+        &.rel_po {
+            background-color: #f9e6e8;
+            border-top: 1px solid #fdb5bc;
+            border-bottom: 0;
+        }
+
+        &.split {
+            border-bottom: .15rem dotted #64bcf3;
+        }
+
+
+    }
+}

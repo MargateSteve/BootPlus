@@ -1,0 +1,62 @@
+
+@mixin set_full_border_colors($color_array)
+{
+    @each $color, $value in $color_array {
+        .border-#{$color} {
+            border-color: $value !important;
+        }
+        $current_color : '';
+        @each $weight, $percentage in $palette {
+            @if $weight < 500 {
+                $current_color : mix(white, $value, $percentage);
+            } @else if $weight > 500 {
+                $current_color : mix(black, $value, $percentage);
+            }
+
+            .border-#{"" + $color}-#{$weight} {
+                border-color: $current_color !important;
+            }
+
+        }
+
+    }
+}
+
+@mixin set_side_border_colors($_colors) {
+    @each $color, $value in $_colors {
+        $current_color : $color;
+      @each $side in $box_sides {
+          .border-#{$side}-#{$current_color} {
+            border-#{$side}-color: $value !important;
+          }
+
+      }
+      @each $weight, $percentage in $palette {
+          @if $weight < 500 {
+              $current_color : mix(white, $value, $percentage);
+          } @else if $weight > 500 {
+              $current_color : mix(black, $value, $percentage);
+          }
+
+          @each $side in $box_sides {
+              .border-#{$side}-#{$color}-#{$weight} {
+                border-#{$side}-color: $current_color !important;
+              }
+
+          }
+
+          .border-x-#{"" + $color}-#{$weight} {
+              border-left-color: $current_color !important;
+              border-right-color: $current_color !important;
+          }
+
+          .border-y-#{"" + $color}-#{$weight} {
+              border-top-color: $current_color !important;
+              border-bottom-color: $current_color !important;
+          }
+      }
+
+
+    }
+
+}

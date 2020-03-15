@@ -1,0 +1,50 @@
+@if $enable-fixed-sizes {
+    @for $i from 1 through $max-fixed-sizes {
+
+        .size-#{$i} {height: #{$i}rem ;width: #{$i}rem;}
+        .size-#{$i}-inline {height: #{$i}rem !important;width: #{$i}rem !important; display: inline-block}
+
+        .size-w-#{$i} {width: #{$i}rem !important;}
+        .size-h-#{$i} {height: #{$i}rem !important;}
+
+        .size-w-#{$i}-inline {width: #{$i}rem !important; display: inline-block}
+        .size-h-#{$i}-inline {height: #{$i}rem !important; display: inline-block}
+
+        @each $breakpoint in map-keys($grid-breakpoints) {
+
+            $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+                .size#{$infix}-#{$i} {height: #{$i}rem ;width: #{$i}rem;}
+                .size#{$infix}-#{$i}-inline {height: #{$i}rem !important;width: #{$i}rem !important; display: inline-block}
+
+                .size-w#{$infix}-#{$i} {width: #{$i}rem !important;}
+                .size-h#{$infix}-#{$i} {height: #{$i}rem !important;}
+
+                .size-w#{$infix}-#{$i}-inline {width: #{$i}rem !important; display: inline-block}
+                .size-h#{$infix}-#{$i}-inline {height: #{$i}rem !important; display: inline-block}
+            }
+        }
+    }
+}
+
+@if $enable-bs-size-responsive {
+    @each $breakpoint in map-keys($grid-breakpoints) {
+
+        @if $breakpoint != 'xs' {
+
+
+
+            $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+            @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+
+                @each $prop, $abbrev in (width: w, height: h) {
+                  @each $size, $length in $sizes {
+
+                    .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+                  }
+                }
+
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+// stylelint-disable declaration-no-important
+
+@include set_full_border_colors($colors);
+
+
+@if $include-theme-colors {
+    @include set_full_border_colors($theme-colors);
+}
+
+
+@if $enable-base-colors {
+    @include set_full_border_colors($base-colors);
+}
+
+
+@if $enable-extra-colors {
+    @include set_full_border_colors($extra-colors);
+}
+
+// need all all base colors first, the top, bottom ect
+
+@include set_side_border_colors($colors)
+
+@if $include-theme-colors {
+    @include set_side_border_colors($theme-colors)
+}
+
+
+@if $enable-base-colors {
+    @include set_side_border_colors($base-colors)
+}
+
+
+@if $enable-extra-colors {
+    @include set_side_border_colors($extra-colors)
+}
+
+
+@for $i from 1 through $max-border-width {
+
+    .border-#{$i} {border-width: #{$i}px !important;}
+}
+
+@for $i from 1 through $max-border-width {
+
+    .border-top-#{$i}    { border-top-width: #{$i}px !important; }
+    .border-right-#{$i}  { border-right-width: #{$i}px !important; }
+    .border-bottom-#{$i} { border-bottom-width: #{$i}px !important; }
+    .border-left-#{$i}   { border-left-width: #{$i}px !important; }
+    .border-x-#{$i}      {
+        border-left-width: #{$i}px !important;
+        border-right-width: #{$i}px !important;
+    }
+    .border-y-#{$i}      {
+        border-top-width: #{$i}px !important;
+        border-bottom-width: #{$i}px !important;
+    }
+}
+
+
+
+//
+// Border-radius
+//
+
+.rounded {
+  border-radius: $border-radius !important;
+}
+.rounded-top {
+  border-top-left-radius: $border-radius !important;
+  border-top-right-radius: $border-radius !important;
+}
+.rounded-right {
+  border-top-right-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}
+.rounded-bottom {
+  border-bottom-right-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+.rounded-left {
+  border-top-left-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.rounded-circle {
+  border-radius: 50% !important;
+}
+
+.rounded-0 {
+  border-radius: 0 !important;
+}
